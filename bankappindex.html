@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ralph's Banking App</title>
+  <Link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+  
+  <header>
+    <nav>
+      <a class="nav-item" href="/bankappindex.html">Home</a>
+      <a class="nav-item" href="/pages/myAccount.html">My Account</a>
+      <a class="nav-item" href="/pages/deposit.html">Deposit</a>
+      <a class="nav-item" href="/pages/transfer.html">Transfer</a>
+    </nav>
+  
+  </header>
+  <main>
+    <div class="intro-image">
+      <div class="intro-text">
+        <hr size="3" noshade color="blue">
+        <h1> Welcome to My Banking Website!</h1>
+        <p> <b> Enjoy smooth banking experience! </b></p>
+        <hr size="3" noshade color="blue">
+      </div>
+    </div>
+    <div class="container">
+      <div class="loginaccount-form" id="loginForm" style="display: none;">
+        <form onsubmit="submitLoginForm(event)">
+          <h2> Login Here </h2>
+          <p> Kindly Enter Your Login Information to Get Signed In! </p>
+          <div class="input-container">
+            <label for="loginUsername"><b> Username: </b></label>
+            <input type="text" name="uName" id="loginUsername" required> <br>
+          </div>
+          <div class="input-container">
+            <label for="loginPassword"><b> Password: </b></label>
+            <input type="password" name="password" id="loginPassword" required> <br>
+          </div>
+          <button type="submit"><b> SIGN IN </b></button>
+          <span> <a href="#" onclick="showForm('registerForm')"> <b> Don't have an Account? Register Here </b> </a> </span>
+        </form>
+      </div>
+
+      <div class="registeraccount-form" id="registerForm">
+        <form onsubmit="submitRegisterForm(event)">
+          <h2>Create your Account</h2>
+          <p> Kindly Provide Your Information Here To Get Started! </p>
+          <div class="input-container">
+            <label for="firstName"> <b> First Name: </b></label>
+            <input type="text" name="firstName" id="firstName" placeholder="Please enter your first name"
+              style="font-style: italic;" required>
+          </div>
+          <div class="input-container">
+            <label for="lastName"> <b> Last Name: </b></label>
+            <input type="text" name="lastName" id="lastName" placeholder="Please enter your last name"
+              style="font-style: italic;" required>
+            <div class="input-container">
+              <label for="registerUsername"> <b> Username: </b> </label>
+              <input type="text" name="uName" id="registerUsername" placeholder="Please choose a unique username"
+                style="font-style: italic;" required>
+            </div>
+            <div class="input-container">
+              <label for="email"> <b> Email Address: </b></label>
+              <input type="email" name="email" id="registerEmail" placeholder="Kindly enter your email"
+                style="font-style: italic;" required>
+            </div>
+            <div class="input-container">
+              <label for="registerPassword"> <b> Password: </b>
+                <input type="password" name="password" id="registerPassword" placeholder="Please choose a unique password"
+                  style="font-style: italic;" required> </label>
+            </div>
+            <div class="input-container">
+              <label for="confirm_password"> <b> Confirm Password: </b>
+                <input type="password" name="confirm_password" id="confirm_password"
+                  placeholder="Please re-enter your password" style="font-style: italic;" required onkeyup='check();'>
+                <br>
+                <span id='message'></span> <br>
+              </label>
+            </div>
+            <button type="submit" id="submit"><b> SIGN UP </b></button>
+            <span> <a href="#" onclick="showForm('loginForm')"> Already have an account? Login Here</a> </span>
+            <h3 id="output"></h3>
+          </form>
+
+      </div>
+    </div>
+  </main>
+  <script src="bankapp.js"></script>
+</body>
+
+</html>
