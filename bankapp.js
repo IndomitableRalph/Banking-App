@@ -12,21 +12,42 @@ function showForm(formId) {
     registerForm.style.display = 'flex';
   }
 }
+function pwd() {
+  let registerPassword = document.getElementById('registerPassword');
+  let confirm_password = document.getElementById('confirm_password');
+  if (registerPassword.value == "") {
+      confirm_password.disabled = 'true';
+  } else {
+    confirm_password.disabled = false;
+  }
+}
+
 
 check = function () {
   let message = document.getElementById('message');
   let password = document.getElementById('registerPassword').value;
-  let confirm_password = document.getElementById('confirm_password').value;
-  let submit = document.getElementById('submit').value;
+  var confirm_password = document.getElementById('confirm_password').value;
+  let submit = document.getElementById('submit');
+
   if (password == confirm_password) {
+    message.style.display = 'block';
     message.style.color = 'green';
     message.innerHTML = 'Password is a match';
+    submit.disabled = false;
 
-  } else {
+  } 
+  else if (password == "" || confirm_password == "") {
+    message.style.display = 'none';
+  }
+
+  else if(password != confirm_password) {
+    message.style.display = 'block';
     message.style.color = 'red';
     message.innerHTML = 'Password does not match';
-    submit = disabled;
+    submit.disabled = true;
   }
+ 
+
 }
 
 function registerUser(username, password, email, firstName, lastName) {
@@ -84,10 +105,6 @@ let output = document.getElementById('output')
   console.log(users);
 }
 
-//function validate(event) {
- // if (!passesValidation) event.preventDefault();
- // console.log(validate(event))
-//}
 
 function submitLoginForm(event) {
   event.preventDefault();
@@ -107,7 +124,7 @@ function loginUser(username, password) {
   users.forEach(user => {
     console.log(user.username); 
       if (user.password === password && user.username === username) {
-        // store a flag in localStorgae where it says "loggedIn" = true
+        // store a flag in localStorage where it says "loggedIn" = true
         setKey('loggedIn', true);
       }
   });

@@ -74,12 +74,12 @@
             <div class="input-container">
               <label for="registerPassword"> <b> Password: </b>
                 <input type="password" name="password" id="registerPassword" placeholder="Please choose a unique password"
-                  style="font-style: italic;" required> </label>
+                  style="font-style: italic;" onkeyup="pwd()" required> </label>
             </div>
             <div class="input-container">
               <label for="confirm_password"> <b> Confirm Password: </b>
                 <input type="password" name="confirm_password" id="confirm_password"
-                  placeholder="Please re-enter your password" style="font-style: italic;" required onkeyup='check();'>
+                  placeholder="Please re-enter your password" style="font-style: italic;" disabled="true" required onkeyup='check();'>
                 <br>
                 <span id='message'></span> <br>
               </label>
