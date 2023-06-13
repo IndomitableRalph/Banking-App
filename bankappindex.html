@@ -22,19 +22,30 @@
   
   </header>
   <main>
-    <div class="intro-image">
-      <div class="intro-text">
-        <hr size="3" noshade color="blue">
-        <h1> Welcome to My Banking Website!</h1>
-        <p> <b> Enjoy smooth banking experience! </b></p>
-        <hr size="3" noshade color="blue">
-      </div>
-    </div>
+    <table id="headerTable">
+      <tr>
+        <td>
+          <img id="logo" src="logo.png" alt="IRISLogo">
+        </td>
+        <td>
+          <div class="intro-image">
+            <div class="intro-text">
+              <hr>
+              <h1 color="blue"> WELCOME TO IRIS TRUST BANK!</h1>
+              <p> <b> Trust. Innovate. Thrive. </b></p>
+              <hr>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+    
+    
     <div class="container">
       <div class="loginaccount-form" id="loginForm" style="display: none;">
         <form onsubmit="submitLoginForm(event)">
           <h2> Login Here </h2>
-          <p> Kindly Enter Your Login Information to Get Signed In! </p>
+          <p> <b>Kindly Enter Your Login Information to Get Signed In! </b> </p>
           <div class="input-container">
             <label for="loginUsername"><b> Username: </b></label>
             <input type="text" name="uName" id="loginUsername" required> <br>
@@ -43,7 +54,7 @@
             <label for="loginPassword"><b> Password: </b></label>
             <input type="password" name="password" id="loginPassword" required> <br>
           </div>
-          <button type="submit"><b> SIGN IN </b></button>
+          <button type="submit"><b> Log In </b></button>
           <span> <a href="#" onclick="showForm('registerForm')"> <b> Don't have an Account? Register Here </b> </a> </span>
         </form>
       </div>
@@ -51,7 +62,7 @@
       <div class="registeraccount-form" id="registerForm">
         <form onsubmit="submitRegisterForm(event)">
           <h2>Create your Account</h2>
-          <p> Kindly Provide Your Information Here To Get Started! </p>
+          <p><b>Kindly Provide Your Information Here To Get Started!</b> </p>
           <div class="input-container">
             <label for="firstName"> <b> First Name: </b></label>
             <input type="text" name="firstName" id="firstName" placeholder="Please enter your first name"
@@ -84,7 +95,7 @@
                 <span id='message'></span> <br>
               </label>
             </div>
-            <button type="submit" id="submit"><b> SIGN UP </b></button>
+            <button type="submit" id="submit"><b> Sign Up </b></button>
             <span> <a href="#" onclick="showForm('loginForm')"> Already have an account? Login Here</a> </span>
             <h3 id="output"></h3>
           </form>
@@ -93,6 +104,20 @@
     </div>
   </main>
   <script src="bankapp.js"></script>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>
+    <nav>
+      <img src="logo.png" alt="IRISLogo" style="width: 70px;">
+      <a class="nav-item" href="/contactus.html">Contact Us </a>
+      <a class="nav-item" href="/pages/aboutus.html">About Us</a>
+      <a class="nav-item" href="https://www.linkedin.com/in/raphael-ibidiran-inioluwa-35a16a163/" target="_blank">Join Our Community</a>
+    </nav>
+  </footer>
 </body>
 
 </html>
