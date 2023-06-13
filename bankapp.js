@@ -26,7 +26,7 @@ function pwd() {
 check = function () {
   let message = document.getElementById('message');
   let password = document.getElementById('registerPassword').value;
-  var confirm_password = document.getElementById('confirm_password').value;
+  let confirm_password = document.getElementById('confirm_password').value;
   let submit = document.getElementById('submit');
 
   if (password == confirm_password) {
