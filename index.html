@@ -12,21 +12,21 @@
 </head>
 
 <body>
-  
+
   <header>
     <nav>
-      <a class="nav-item" href="/index.html">Home</a>
-      <a class="nav-item" href="/pages/myAccount.html">My Account</a>
-      <a class="nav-item" href="/pages/deposit.html">Deposit</a>
-      <a class="nav-item" href="/pages/transfer.html">Transfer</a>
+      <a class="nav-item" href="index.html">Home</a>
+      <a class="nav-item" href="myAccount.html">My Account</a>
+      <a class="nav-item" href="deposit.html">Deposit</a>
+      <a class="nav-item" href="transfer.html">Transfer</a>
     </nav>
-  
+
   </header>
   <main>
     <table id="headerTable">
       <tr>
         <td>
-          <img id="logo" src="logo.png" alt="IRISLogo">
+          <a href="/index.html"><img id="logo" src="logo.png" alt="IRISLogo"> </a>
         </td>
         <td>
           <div class="intro-image">
@@ -40,8 +40,8 @@
         </td>
       </tr>
     </table>
-    
-    
+
+
     <div class="container">
       <div class="loginaccount-form" id="loginForm" style="display: none;">
         <form onsubmit="submitLoginForm(event)">
@@ -56,7 +56,8 @@
             <input type="password" name="password" id="loginPassword" required> <br>
           </div>
           <button type="submit"><b> Log In </b></button>
-          <span> <a href="#" onclick="showForm('registerForm')"> <b> Don't have an Account? Register Here </b> </a> </span>
+          <span> <a href="#" onclick="showForm('registerForm')"> <b> Don't have an Account? Register Here </b> </a>
+          </span>
         </form>
       </div>
 
@@ -85,13 +86,15 @@
             </div>
             <div class="input-container">
               <label for="registerPassword"> <b> Password: </b>
-                <input type="password" name="password" id="registerPassword" placeholder="Please choose a unique password"
-                  style="font-style: italic;" onkeyup="pwd()" required> </label>
+                <input type="password" name="password" id="registerPassword"
+                  placeholder="Please choose a unique password" style="font-style: italic;" onkeyup="pwd()" required>
+              </label>
             </div>
             <div class="input-container">
               <label for="confirm_password"> <b> Confirm Password: </b>
                 <input type="password" name="confirm_password" id="confirm_password"
-                  placeholder="Please re-enter your password" style="font-style: italic;" disabled="true" required onkeyup='check();'>
+                  placeholder="Please re-enter your password" style="font-style: italic;" disabled="true" required
+                  onkeyup='check();'>
                 <br>
                 <span id='message'></span> <br>
               </label>
@@ -99,7 +102,7 @@
             <button type="submit" id="submit"><b> Sign Up </b></button>
             <span> <a href="#" onclick="showForm('loginForm')"> Already have an account? Login Here</a> </span>
             <h3 id="output"></h3>
-          </form>
+        </form>
 
       </div>
     </div>
@@ -111,14 +114,16 @@
   <br>
   <br>
   <br>
-  <footer>
-    <nav>
-      <img src="logo.png" alt="IRISLogo" style="width: 70px;">
-      <a class="nav-item" href="/contactus.html">Contact Us </a>
-      <a class="nav-item" href="/pages/aboutus.html">About Us</a>
-      <a class="nav-item" href="https://www.linkedin.com/in/raphael-ibidiran-inioluwa-35a16a163/" target="_blank">Join Our Community</a>
-    </nav>
-  </footer>
+  <div class="footer">
+    <footer>
+      <nav>
+        <a href="index.html"><img class="nav-item" src="logo.png" alt="IRISLogo" style="width: 70px;"> </a>
+        <a class="nav-item" href="contactus.html">Contact Us </a>
+        <a class="nav-item" href="aboutus.html">About Us</a>
+        <a class="nav-item" href="https://www.linkedin.com/in/raphael-ibidiran-inioluwa-35a16a163/" target="_blank">Join Our Community</a>
+      </nav>
+    </footer>
+  </div>
 </body>
 
 </html>

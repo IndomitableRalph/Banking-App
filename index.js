@@ -126,6 +126,13 @@ function loginUser(username, password) {
       if (user.password === password && user.username === username) {
         // store a flag in localStorage where it says "loggedIn" = true
         setKey('loggedIn', true);
+        window.location.replace("myAccount.html");
+        console.log('Login Successful');
+      }
+      else {
+        alert("Your username or password is incorrect!");
+        console.log('Login Unsuccessful');
+        return;
       }
   });
 }
