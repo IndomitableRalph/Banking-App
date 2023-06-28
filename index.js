@@ -119,6 +119,9 @@ function loginUser(username, password) {
   if (!password) return false
   let users = loadKey('users');
   if (users.length == 0) return false;
+  let lginAccountName = document.getElementById('lginAccountName');
+  let lginUsername = document.getElementById('lginUsername');
+  let lginEmail = document.getElementById('lginEmail')
 
   //check that the username and password matches
   users.forEach(user => {
@@ -126,8 +129,22 @@ function loginUser(username, password) {
       if (user.password === password && user.username === username) {
         // store a flag in localStorage where it says "loggedIn" = true
         setKey('loggedIn', true);
-        window.location.replace("myAccount.html");
-        console.log('Login Successful');
+        // When user logs in, store user information into a separate local storage key called user
+        setKey('user', JSON.stringify(user));
+        // Proceed to the Dashboard MyAccount Page to display User Account details
+        //window.location.replace("myAccount.html");
+        // Then, pull up the stored user information and display in a box in myAccount Dashboard
+        
+        lginUsername.style.color= '#7c0a26';
+        lginUsername.innerHTML = user.username;
+
+        lginAccountName.style.color = '#7c0a26';
+        lginAccountName.innerHTML = user.firstName + " " + user.lastName;
+
+        lginEmail.style.color = '#7c0a26';
+        lginEmail.innerHTML = user.email;
+          console.log('Login Successful');
+
       }
       else {
         alert("Your username or password is incorrect!");
@@ -146,10 +163,3 @@ function loadKey(key) {
 function setKey(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
-
-
-
-
-
-         
-      
