@@ -16,7 +16,7 @@ function pwd() {
   let registerPassword = document.getElementById('registerPassword');
   let confirm_password = document.getElementById('confirm_password');
   if (registerPassword.value == "") {
-      confirm_password.disabled = 'true';
+    confirm_password.disabled = 'true';
   } else {
     confirm_password.disabled = false;
   }
@@ -35,73 +35,73 @@ check = function () {
     message.innerHTML = 'Password is a match';
     submit.disabled = false;
 
-  } 
+  }
   else if (password == "" || confirm_password == "") {
     message.style.display = 'none';
   }
 
-  else if(password != confirm_password) {
+  else if (password != confirm_password) {
     message.style.display = 'block';
     message.style.color = 'red';
     message.innerHTML = 'Password does not match';
     submit.disabled = true;
   }
- 
+
 
 }
 
 function registerUser(username, password, email, firstName, lastName) {
-// Check if the user exists already in my local storage
-let users = JSON.parse(localStorage.getItem("users"));
-if (! JSON.parse(localStorage.getItem("users"))) {
-  users = [];
-}
-
-//Then, if the user already exists, then don't register
-for (let i = 0; i > users.length; i++) {
-  if (users[i].username == username) {
-    return false;
+  // Check if the user exists already in my local storage
+  let users = JSON.parse(localStorage.getItem("users"));
+  if (!JSON.parse(localStorage.getItem("users"))) {
+    users = [];
   }
-}
 
-// If the user doesn't exist, create a new user
-let newUser = {
-  username: username,
-  password: password,
-  email: email,
-  firstName: firstName,
-  lastName: lastName
-}
+  //Then, if the user already exists, then don't register
+  for (let i = 0; i > users.length; i++) {
+    if (users[i].username == username) {
+      return false;
+    }
+  }
 
-//push the new user to the Users array
-users.push(newUser);
+  // If the user doesn't exist, create a new user
+  let newUser = {
+    username: username,
+    password: password,
+    email: email,
+    firstName: firstName,
+    lastName: lastName
+  }
 
-//Afterwards, set the Users array into the local storage
-localStorage.setItem("users", JSON.stringify(users));
+  //push the new user to the Users array
+  users.push(newUser);
 
-//Console.log users array to see the added user
-console.log(JSON.parse(localStorage.getItem("users")));
-return users;
+  //Afterwards, set the Users array into the local storage
+  localStorage.setItem("users", JSON.stringify(users));
+
+  //Console.log users array to see the added user
+  console.log(JSON.parse(localStorage.getItem("users")));
+  return users;
 }
 
 function submitRegisterForm(event) {
-event.preventDefault();
+  event.preventDefault();
 
-let username = document.getElementById('registerUsername').value;
-let password = document.getElementById('registerPassword').value;
-let email = document.getElementById('registerEmail').value;
-let firstName = document.getElementById('firstName').value;
-let lastName = document.getElementById('lastName').value;
-let output = document.getElementById('output')
+  let username = document.getElementById('registerUsername').value;
+  let password = document.getElementById('registerPassword').value;
+  let email = document.getElementById('registerEmail').value;
+  let firstName = document.getElementById('firstName').value;
+  let lastName = document.getElementById('lastName').value;
+  let output = document.getElementById('output')
 
   registerUser(username, password, email, firstName, lastName)
   console.log("Register Form Submitted");
   let users = JSON.parse(localStorage.getItem("users"));
-  if (! JSON.parse(localStorage.getItem("users"))) {
+  if (!JSON.parse(localStorage.getItem("users"))) {
     users = [];
   }
   output.style.color = 'green';
-  output.innerHTML = "Welcome"+ " " + username + "!" + " " +"Your Account has been registered Succesfully!";
+  output.innerHTML = "Welcome" + " " + username + "!" + " " + "Your Account has been registered Succesfully!";
   console.log(users);
 }
 
@@ -110,7 +110,7 @@ function submitLoginForm(event) {
   event.preventDefault();
   let username = document.getElementById('loginUsername').value;
   let password = document.getElementById('loginPassword').value;
-    loginUser(username, password);
+  loginUser(username, password);
 }
 
 // load the users array from the local storage
@@ -119,38 +119,26 @@ function loginUser(username, password) {
   if (!password) return false
   let users = loadKey('users');
   if (users.length == 0) return false;
-  let lginAccountName = document.getElementById('lginAccountName');
-  let lginUsername = document.getElementById('lginUsername');
-  let lginEmail = document.getElementById('lginEmail')
+  let incorrectlogindetails = document.getElementById('incorrectlogindetails');
+
 
   //check that the username and password matches
   users.forEach(user => {
-    console.log(user.username); 
-      if (user.password === password && user.username === username) {
-        // store a flag in localStorage where it says "loggedIn" = true
-        setKey('loggedIn', true);
-        // When user logs in, store user information into a separate local storage key called user
-        setKey('user', JSON.stringify(user));
-        // Proceed to the Dashboard MyAccount Page to display User Account details
-        //window.location.replace("myAccount.html");
-        // Then, pull up the stored user information and display in a box in myAccount Dashboard
-        
-        lginUsername.style.color= '#7c0a26';
-        lginUsername.innerHTML = user.username;
-
-        lginAccountName.style.color = '#7c0a26';
-        lginAccountName.innerHTML = user.firstName + " " + user.lastName;
-
-        lginEmail.style.color = '#7c0a26';
-        lginEmail.innerHTML = user.email;
-          console.log('Login Successful');
-
-      }
-      else {
-        alert("Your username or password is incorrect!");
-        console.log('Login Unsuccessful');
-        return;
-      }
+    console.log(user.username);
+    if (user.password === password && user.username === username) {
+      // store a flag in localStorage where it says "loggedIn" = true
+      setKey('loggedIn', true);
+      // When user logs in, store user information into a separate local storage key called user
+      setKey('user', user);
+      // Proceed to the Dashboard MyAccount Page to display User Account details
+      window.location.replace("myAccount.html");
+    }
+    else {
+      incorrectlogindetails.style.color = 'red';
+      incorrectlogindetails.innerHTML = "Your username or password is incorrect!";
+      console.log('Login Unsuccessful');
+      return;
+    }
   });
 }
 
